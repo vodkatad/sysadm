@@ -31,7 +31,7 @@ class SlackLogger:
             self.names += msg['name']
         if msg["level"] == "error" and not self.error_occured:
             self.slack.chat.post_message(
-                self.own_id, text="At least one error occured in " + self.names, username="snakemake"
+                self.own_id, text="At least one error occured in " + self.names, username="snakemake_"+self.hostname
             )
             self.error_occured = True
         if msg["level"] == "progress" and msg["done"] == msg["total"]:
